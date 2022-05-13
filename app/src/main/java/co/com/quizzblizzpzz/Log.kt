@@ -12,6 +12,7 @@ import com.google.android.gms.common.SignInButton
 import androidx.core.app.ActivityCompat.startActivityForResult
 
 import android.content.Intent
+import co.com.quizzblizzpzz.databinding.ActivityLogBinding
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
@@ -21,18 +22,18 @@ class Log : AppCompatActivity(), View.OnClickListener {
 
     val RC_SIGN_IN : Int = 1001
     var mGoogleSignInClient : GoogleSignInClient? = null
+    lateinit var binding: ActivityLogBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_log)
+        binding = ActivityLogBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
             .build()
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
-        val signInButton: SignInButton = findViewById(R.id.sign_in_button_google)
-        signInButton.setSize(SignInButton.SIZE_STANDARD)
-        signInButton.setOnClickListener(this)
+        binding.signInButtonGoogle.setOnClickListener(this)
 
     }
 

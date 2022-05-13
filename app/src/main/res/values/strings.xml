@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">QUIZZBLIZZPZZ</string>
-    <string name="BASE_URL">https://opentdb.com/api.php?</string>
+    <string name="BASE_URL">https://opentdb.com/</string>
+    <string name="PHP_BASE_URL">api.php?</string>
 
 
     <string name="MSG_NO_LOG">No se pudo loguear, intente nueva mente mas
         tarde o comprueba su conección a internet</string>
+    <string name="version">Version: </string>
 </resources>
