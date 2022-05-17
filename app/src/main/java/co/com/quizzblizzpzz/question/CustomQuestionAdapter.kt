@@ -20,7 +20,7 @@ class CustomQuestionAdapter(private val list: ArrayList<String>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = list.get(position)
+        holder.textView.text = list[position]
     }
 
     override fun getItemCount(): Int {

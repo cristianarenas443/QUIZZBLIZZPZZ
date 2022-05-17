@@ -3,16 +3,13 @@ package co.com.quizzblizzpzz
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.common.SignInButton
-import androidx.core.app.ActivityCompat.startActivityForResult
 
 import android.content.Intent
 import co.com.quizzblizzpzz.databinding.ActivityLogBinding
+import co.com.quizzblizzpzz.utils.Utils
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task

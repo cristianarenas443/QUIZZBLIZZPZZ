@@ -4,7 +4,10 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.util.Log.v
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.com.quizzblizzpzz.APICalls.APIService
@@ -19,6 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 import java.util.Collections.shuffle
 import kotlin.collections.ArrayList
+import co.com.quizzblizzpzz.utils.Utils
 
 class Game : AppCompatActivity(){
 
@@ -93,7 +97,10 @@ class Game : AppCompatActivity(){
     }
 
     private fun saveDataAndExit(){
-        Utils().setData(this, points.toString(), getString(R.string.points))
+        if (Utils().getData(this, getString(R.string.points), "0")
+                .toInt() < points ){
+            Utils().setData(this, points.toString(), getString(R.string.points))
+        }
         val intent = Intent(this, Home::class.java)
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)

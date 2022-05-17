@@ -1,14 +1,11 @@
-package co.com.quizzblizzpzz
+package co.com.quizzblizzpzz.utils
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.os.Build
-import android.provider.Settings.Global.getString
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import java.util.*
-import kotlin.collections.ArrayList
 
 class Utils {
 
@@ -24,6 +21,7 @@ class Utils {
     */
     fun setData(activity: Activity, data: String, key: String){
         val sharedPref = activity.getPreferences(Context.MODE_PRIVATE) ?: return
+
         with(sharedPref.edit()){
             putString(key, data)
             apply()
@@ -34,7 +32,8 @@ class Utils {
        fun getData: nos devuelve la información del puntaje
     */
     fun getData(activity: Activity, key: String, defaultValue: String) : String{
-        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return defaultValue
+        val sharedPref = activity?.getSharedPreferences(key, Context.MODE_PRIVATE)
+            ?: return defaultValue
         return sharedPref.getString(key, defaultValue).toString()
     }
 
@@ -43,6 +42,6 @@ class Utils {
     */
     @RequiresApi(Build.VERSION_CODES.O)
     fun DB64(dataCoded : String): String{
-        return Base64.getDecoder().decode(dataCoded).toString()
+        return String(Base64.getDecoder().decode(dataCoded))
     }
 }

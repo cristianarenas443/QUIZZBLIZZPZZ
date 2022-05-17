@@ -1,15 +1,12 @@
 package co.com.quizzblizzpzz
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
-import co.com.quizzblizzpzz.databinding.ActivityGameBinding
 import co.com.quizzblizzpzz.databinding.ActivityHomeBinding
+import co.com.quizzblizzpzz.utils.Utils
 
 class Home : AppCompatActivity(), View.OnClickListener {
 
@@ -22,7 +19,7 @@ class Home : AppCompatActivity(), View.OnClickListener {
 
         binding.txtVersion.setText(BuildConfig.VERSION_NAME)
         binding.btnBeginGame.setOnClickListener(this)
-        binding.txtHomePoints.text = Utils().getData(this,getString(R.string.points), "0")
+        binding.txtHomePoints.text = Utils().getData(this, getString(R.string.points), "0")
 
     }
 
