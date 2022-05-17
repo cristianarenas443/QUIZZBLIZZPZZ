@@ -22,13 +22,13 @@ class Home : AppCompatActivity(), View.OnClickListener {
 
         binding.txtVersion.setText(BuildConfig.VERSION_NAME)
         binding.btnBeginGame.setOnClickListener(this)
+        binding.txtHomePoints.text = Utils().getData(this,getString(R.string.points), "0")
 
     }
 
     override fun onClick(p0: View?) {
         when(p0?.id){
             R.id.btnBeginGame -> {
-                Toast.makeText(this, "*** pailas", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, Game::class.java)
                 startActivity(intent)
             }

@@ -7,4 +7,5 @@
     <string name="MSG_NO_LOG">No se pudo loguear, intente nueva mente mas
         tarde o comprueba su conección a internet</string>
     <string name="version">Version: </string>
+    <string name="points">POINTS</string>
 </resources>
